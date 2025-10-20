@@ -1,0 +1,13 @@
+{% extends "myapp/base.html" %}
+{% load tz %}
+
+{% block content %}
+    <div class="content-section">
+        {% for obj in object_list %}
+            <div class="content-section">
+                <h1 class="task-title"><a href="{% url 'task-view' obj.pk %}">{{ obj.title }}</a></h1>
+                <h5>exp {{ obj.expiration_date }}({{ obj.days_left }} days left)</h5>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

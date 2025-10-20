@@ -1,0 +1,15 @@
+{% extends "myapp/base.html" %}
+{% load tz %}
+
+{% block content %}
+    <div class="content-section">
+            <div class="content-section">
+                <h1 class="task-title">{{ object.title }}</h1>
+                <hr>
+                <pre class="h2">{{ object.description }}</pre>
+                <h5>exp {{ object.expiration_date }}({{ object.days_left }} days left)</h5>
+            </div>
+        <a class="btn btn-primary" href="{% url 'task-update' object.pk %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'task-delete' object.pk %}">Delete</a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,104 @@
+
+body {
+  background:lightpink;#98f5b1
+  color: #fafafa;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fafafa;
+}
+
+.media-body {
+    color: #fafafa;
+}
+
+.content-section {
+    color: #fafafa;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-steel {
+  background-color: #333333;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #333333;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #fafafa;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.link {
+    text-decoration: none;
+
+}
+
+
+pre {
+    font-family: "Segoe UI", Arial, sans-serif;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+    overflow: hidden; /* to hide scrollbar scroll */
+}
+
+.task-title {
+    text-decoration: none;
+    color: lightpink;
+}
+.task-title a{
+    text-decoration: none;
+    color: lightpink;
+}
