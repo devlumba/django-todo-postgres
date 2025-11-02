@@ -2,12 +2,29 @@
 {% load tz %}
 
 {% block content %}
-    <div class="content-section">
+        {% if not request.htmx %}
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  <!--sweet alert -->
+
+        <button class="btn btn-secondary btn-lg" hx-get="{% url 'home' %}" hx-swap="innerHTML" hx-target=".list-target">View Tasks(htmx)</button>
+        <button class="btn btn-secondary btn-lg" hx-get="{% url 'tasks-expired' %}" hx-swap="innerHTML" hx-target=".list-target">Expired Tasks</button>
+        <button class="btn btn-secondary btn-lg" hx-get="{% url 'task-create' %}" hx-swap="innerHTML" hx-target=".newtask-target">New Task</button>
+
+        <input type="search" class="form-conntrol"
+                name="search" placeholder="Begin Typing to Search Tasks"
+                hx-post="{% url 'task-search' %}"
+                hx-trigger="input changed delay:250ms, keyup[key=='Enter'], load"
+                hx-target=".list-target" hx-swap="innerHTML">
+
+        <span class="newtask-target"></span>
+        <div class="content-section list-target">
+        {% else %}
+        <h1>RENDERING HTMX</h1>
+            <ul class="list-target">
         {% for obj in object_list %}
-            <div class="content-section">
-                <h1 class="task-title"><a href="{% url 'task-view' obj.pk %}">{{ obj.title }}</a></h1>
-                <h5>exp {{ obj.expiration_date }}({{ obj.days_left }} days left)</h5>
-            </div>
+            {% include 'myapp/task_partial.html' %}
         {% endfor %}
-    </div>
+            </ul>
+        {% endif %}
+
+        </div>
 {% endblock content %}

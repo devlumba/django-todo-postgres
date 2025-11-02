@@ -21,7 +21,7 @@
     </div>
 
 {% else %}
-    <div class="content-section">
+    <div class="form-group">
         <form method="POST" action="" novalidate
               hx-post="{% url 'task-create' %}"
               hx-on::after-request="document.querySelector('form').reset()"
@@ -29,15 +29,18 @@
               hx-swap="beforeend">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Create a Task</legend>
-                <div style="display: flex; height: 30px;">
+                <div>
                     {% for field in form %}
                         {{ field | attr:"required"}}
                     {% endfor %}
                 </div>
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-info" hx-on:click="alert('Clicked!')" type="submit">Submit</button>
+                <button class="btn btn-info"
+                        hx-post="{% url 'task-update' object.pk %}"
+                        hx-swap="delete"
+                        hx-target="closest form"
+                        type="submit">Submit</button>
             </div>
         </form>
     </div>

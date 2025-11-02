@@ -1,0 +1,28 @@
+    <li>
+         <div class="content-section">
+            <h1 class="task-title"><a href="{% url 'task-view' obj.pk %}"
+
+            >{{ obj.title }}</a></h1>
+
+
+                <div class="for-update" id="update--{{ obj.pk }}">
+                </div>
+            <h5
+                    hx-get="{% url 'task-update' obj.pk %}"
+                    hx-target="#update--{{ obj.pk }}"
+                    hx-swap="innerHTML">exp {{ obj.expiration_date }}({{ obj.days_left }} days left)</h5>
+            <button class="btn btn-danger btn-lg"
+                    hx-swap="delete"
+                    hx-delete="{% url 'task-delete' obj.pk %}"
+                    hx-target="closest li"
+                    hx-trigger='confirmed-tag'
+                    onClick="Swal.fire({title: 'DELETE', text:'Are you sure?'}).then((result)=>{
+                        if(result.isConfirmed){
+                          htmx.trigger(this, 'confirmed-tag');
+                        }
+                    })">Delete</button>
+            </div>
+
+    </li>
+
+

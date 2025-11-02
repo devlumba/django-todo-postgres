@@ -45,6 +45,16 @@ ul {
   margin-bottom: 20px;
 }
 
+.content-section-htmx {
+  background: #333333;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  height: 80px;
+  width: 400px;
+}
+
 .article-title {
   color: #fafafa;
 }

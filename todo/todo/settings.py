@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "crispy_forms",
     "django_htmx",
+    "widget_tweaks",
 
     "myapp",
 ]
